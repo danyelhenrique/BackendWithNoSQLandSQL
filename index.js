@@ -11,7 +11,6 @@ app.mongoose = mongoose;
 consign()
   .then("./config/validation.js") // Validation entrys
   .then("./controllers")
-  // .then("./controllers")
   .then("./config/mongodb.js") // Configuration mongodb connections
   .then("./models/mongodb.js") // Model scheme mongodb
   .then("./config/routes.js") // Routes aplication

@@ -6,12 +6,16 @@ module.exports = app => {
     const idUSer = req.params.id || req.body.id;
 
     if (!idUSer) {
-      const hasEmail = modelo.findOne({ email: "bc" });
-      console.log(hasEmail);
-      //   return modelo.find().then(user => res.send(user));
-      return modelo.findOne({ email: "bc" }).then(re => res.send(re));
+      modelo
+        .find()
+        .sort("field -createdAt")
+        .then(user => res.send(user))
+        .catch(_ => res.send("Fail to get users"));
     } else {
-      modelo.findById(idUSer).then(user => res.send(user));
+      modelo
+        .findById(idUSer)
+        .then(user => res.send(user))
+        .catch(_ => res.send("Fail to get user"));
     }
   };
 

@@ -9,12 +9,11 @@ module.exports = app => {
 
       lastName: String,
 
-      password: {
+      encryptPassword: {
         type: String,
         select: false
       },
 
-      confirmPassword: String,
       contact: String
     },
     { timestamps: true }
