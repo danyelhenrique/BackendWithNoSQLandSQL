@@ -13,12 +13,12 @@ module.exports = app => {
       return res.status(400).send("Invalid ID user");
     }
 
-    const _ = await modelo
+    const delFromDb = await modelo
       .deleteOne({ _id: idUSer })
       .then(_ => res.status(200))
       .catch(_ => res.status(500).send("Failure to delete user"));
 
-    const _ = await modelo
+    const senUsers = await modelo
       .find()
       .sort("field createdAt")
       .then(user => res.send(user));
